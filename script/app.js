@@ -17,7 +17,7 @@ const WARNING_THRESHOLD = 10;
 const ALERT_THRESHOLD = 5;
 const COLOR_CODES = {
   info: {
-    color: 'green',
+    color: 'blue',
   },
   warning: {
     color: 'orange',
@@ -124,17 +124,6 @@ const showQuestion = function (question) {
     }
   }, 1000);
 
-  // downloadTimer = setInterval(function () {
-  //   console.log('timer	');
-  //   if (timeLeft <= 0) {
-  //     clearInterval(downloadTimer);
-  //     elemP.innerHTML = timeLeft;
-  //     checkAnswer(-1, null);
-  //   } else {
-  //     timeLeft -= 1;
-  //     elemP.innerHTML = timeLeft;
-  //   }
-  // }, 1000);
   document.querySelectorAll('.js-question-option').forEach((option) => {
     option.addEventListener('click', (e) => {
       //console.log('inner');
@@ -159,12 +148,12 @@ function setRemainingPathColor(timeLeft) {
     document.getElementById('base-timer-path-remaining').classList.add(warning.color);
   }
 }
-function calculateTimeFraction() {
-  const rawTimeFraction = timeLeft / TIME_LIMIT;
-  return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
-}
+
 function setCircleDasharray() {
-  const circleDasharray = `${(calculateTimeFraction() * FULL_DASH_ARRAY).toFixed(0)} 283`;
+  let rawTimeFraction = timeLeft / TIME_LIMIT;
+  let TimeFraction = rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+
+  const circleDasharray = `${(TimeFraction * FULL_DASH_ARRAY).toFixed(0)} 283`;
   document.getElementById('base-timer-path-remaining').setAttribute('stroke-dasharray', circleDasharray);
 }
 
@@ -265,11 +254,6 @@ const checkAnswer = function (index, showBox) {
       showBox.classList.add('c-shake');
     }
 
-    //console.log(atob(correctAnswer));
-
-    //console.log('incorrect	');
-
-    // show right answer and make other answsers red
   }
 
   if (correctAnswer == true) {

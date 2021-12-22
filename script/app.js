@@ -253,7 +253,6 @@ const checkAnswer = function (index, showBox) {
       showBox.classList.add('c-question-option--false');
       showBox.classList.add('c-shake');
     }
-
   }
 
   if (correctAnswer == true) {

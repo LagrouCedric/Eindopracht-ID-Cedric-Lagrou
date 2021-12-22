@@ -59,11 +59,7 @@ const GetRandomoptions = function (question) {
   //console.log(`array ${array}`);
   return array;
 };
-const addQuestionToOption = function (e) {
-  e.preventDefault();
-  let index = e.target.dataset.index;
-  // console.log(index);
-};
+
 const showQuestion = function (question) {
   let html_title = ``;
   let htmlOptions = ``;

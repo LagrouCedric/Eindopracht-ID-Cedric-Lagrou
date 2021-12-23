@@ -349,11 +349,3 @@ const startFunction = function () {
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('.js-start').addEventListener('click', startFunction);
 });
-// animate css js
-
-// score bolltejes toevoegen antw juist of fout is DONE
-// button doen shaken als antw verkeerd is  DOne
-// timer fixen Done
-// button positive animate als antw juist is MEH
-
-// next button disabled als je er nog niet op mag drukken Meh
